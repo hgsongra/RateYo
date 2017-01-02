@@ -16,8 +16,8 @@
       </div>
 
       <div class="col-md-2">
-        <div id="rateYo"></div>
-        <%= f.hidden_field :rate, :class=>"form-control" %>
+        <div id="rateYo-<%=f.object.id%>"></div>
+        <%= f.hidden_field :rate, :class=>"form-control", id: "rate-#{f.object.id}" %>
       </div>
 
       <div class="col-md-2">
@@ -35,15 +35,15 @@
 
       <div class="col-md-2">
         <%= f.submit("Save Skill", class: "btn btn-primary") %>
-        <%= link_to 'Cancel', "#", class: "btn btn-primary", id: "cancel_add_skill" %>
+        <%= link_to 'Cancel', "#", class: "btn btn-primary", id: "cancel_add_skill_#{params[:action]}" %>
       </div>
     <script type="text/javascript">
-      $(function () {
-        $("#rateYo").rateYo({ halfStar: true, rating: <%= f.object.rate %>})
-        .on("rateyo.set", function (e, data) {
-            $("#skill_rate").val(data.rating);
-          });
-      });
+      // $(function () {
+      //   $("#rateYo").rateYo({ halfStar: true, rating: <%= f.object.rate %>})
+      //   .on("rateyo.set", function (e, data) {
+      //       $("#skill_rate").val(data.rating);
+      //     });
+      // });
     </script>
     <% end %>
 </div>

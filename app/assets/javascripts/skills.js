@@ -6,12 +6,18 @@ $(function(){
 		$(this).hide();
 		$("#skill_form").show();
 		e.stopPropagation();
-	})
+	});
 
-	$("#cancel_add_skill").click(function(e){
+	$("#cancel_add_skill_index").click(function(e){
 		$("#add_skill").show();
 		$("form#new_skill")[0].reset();
 		$("#skill_form").hide();
 		e.stopPropagation();
-	})
+	});
+
+	$("#cancel_add_skill_edit").click(function(e){
+		alert("Hello Folks!!");
+		e.stopPropagation();
+	});
+
 });

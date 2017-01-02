@@ -1,0 +1,8 @@
+$(function () {
+	var skill_id = <%=@skill.id%>;
+	$("#row-"+skill_id).html("<td colspan='7'><%=j render 'form', skill: @skill %></td>");
+  $("#rateYo-<%=@skill.id%>").rateYo({ halfStar: true, rating: <%= @skill.rate %>})
+  .on("rateyo.set", function (e, data) {
+    $("#rate-<%= @skill.id%>").val(data.rating);
+  });
+});
