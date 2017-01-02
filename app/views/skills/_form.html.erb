@@ -1,0 +1,52 @@
+<%= form_for(skill) do |f| %>
+  <% if skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+      <ul>
+      <% skill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate %>
+    <div id="rateYo"></div>
+    <%= f.text_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :industry %>
+    <%= f.text_field :industry %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_exp %>
+    <%= f.text_field :total_exp %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_certify %>
+    <%= f.check_box :is_certify %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<script type="text/javascript">
+  $(function () {
+    $("#rateYo").rateYo({ halfStar: true, rating: <%= f.object.rate || 0 %>})
+    .on("rateyo.set", function (e, data) {
+        $("#skill_rate").val(data.rating);
+      });
+  });
+</script>
+
+<% end %>
