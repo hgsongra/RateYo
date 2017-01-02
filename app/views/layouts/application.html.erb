@@ -10,6 +10,9 @@
 
   <body>
   	<div class="container">
+        <%unless flash.blank?%>
+          <p class="alert alert-info"><%= notice %></p>
+        <%end%>
     	<%= yield %>
     </div>
   </body>

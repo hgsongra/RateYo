@@ -14,12 +14,12 @@ ActiveRecord::Schema.define(version: 20161229081344) do
 
   create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.float    "rate",       limit: 24
+    t.float    "rate",       limit: 24, default: 0.0
     t.string   "industry"
-    t.float    "total_exp",  limit: 24
-    t.boolean  "is_certify"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.float    "total_exp",  limit: 24, default: 0.0
+    t.boolean  "is_certify",            default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
 end

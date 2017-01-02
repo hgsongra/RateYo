@@ -1,7 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Skills</h1>
-<%= link_to 'New Skill', new_skill_path, class: "btn btn-primary" %>
+<%= link_to 'Add Skill', "#", class: "btn btn-primary", id: "add_skill" %>
+
+<div id="skill_form">
+  <%= render 'form', skill: @skill %>  
+</div>
+
 
 <table class="table table-strip">
   <thead>
@@ -11,7 +14,7 @@
       <th>Industry</th>
       <th>Total exp</th>
       <th>Is certify</th>
-      <th colspan="3">Action</th>
+      <th colspan="2">Action</th>
     </tr>
   </thead>
 
@@ -28,12 +31,9 @@
         <td><%= skill.industry %></td>
         <td><%= skill.total_exp %></td>
         <td><%= skill.is_certify %></td>
-        <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
         <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>

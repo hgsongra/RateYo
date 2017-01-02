@@ -1,4 +1,4 @@
-  <div class="col-md-6">
+<div class="row">
     <%= form_for(skill, class: "form") do |f| %>
       <% if skill.errors.any? %>
         <div id="error_explanation">
@@ -11,42 +11,39 @@
         </div>
       <% end %>
 
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, :class=>"form-control" %>
+      <div class="col-md-2">
+        <%= f.text_field :name, :class=>"form-control", placeholder: "Skill Name" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :rate %>
+      <div class="col-md-2">
         <div id="rateYo"></div>
         <%= f.hidden_field :rate, :class=>"form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :industry %>
-        <%= f.text_field :industry, :class=>"form-control" %>
+      <div class="col-md-2">
+        <%= f.text_field :industry, :class=>"form-control", placeholder: "Industry Type" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :total_exp %>
-        <%= f.text_field :total_exp, :class=>"form-control" %>
+      <div class="col-md-2">
+        <%= f.text_field :total_exp, :class=>"form-control", placeholder: "Total Exp" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :is_certify %>
+      <div class="col-md-2">
+        <%= f.label :is_certify, "Is Certify?" %>
         <%= f.check_box :is_certify %>
       </div>
 
-      <div class="actions">
-        <%= f.submit(class: "btn btn-primary") %>
+      <div class="col-md-2">
+        <%= f.submit("Save Skill", class: "btn btn-primary") %>
+        <%= link_to 'Cancel', "#", class: "btn btn-primary", id: "cancel_add_skill" %>
       </div>
     <script type="text/javascript">
       $(function () {
-        $("#rateYo").rateYo({ halfStar: true, rating: <%= f.object.rate || 0 %>})
+        $("#rateYo").rateYo({ halfStar: true, rating: <%= f.object.rate %>})
         .on("rateyo.set", function (e, data) {
             $("#skill_rate").val(data.rating);
           });
       });
     </script>
     <% end %>
-  </div>
+</div>
