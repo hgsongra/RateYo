@@ -42,9 +42,3 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  adapter: postgresql
-  encoding: utf8
-  pool: 5
-  database: skill_rate_production
-  
