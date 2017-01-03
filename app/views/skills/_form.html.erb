@@ -12,20 +12,20 @@
       <% end %>
 
       <div class="col-md-2">
-        <%= f.text_field :name, :class=>"form-control", placeholder: "Skill Name" %>
+        <%= f.text_field :name, :class=>"form-control", placeholder: "Skill Name", required: true %>
       </div>
 
       <div class="col-md-2">
         <div id="rateYo-<%=f.object.id||0%>"></div>
-        <%= f.hidden_field :rate, :class=>"form-control", id: "rate-#{f.object.id||0}" %>
+        <%= f.hidden_field :rate, :class=>"form-control", id: "rate-#{f.object.id||0}", required: true %>
       </div>
 
       <div class="col-md-2">
-        <%= f.text_field :industry, :class=>"form-control", placeholder: "Industry Type" %>
+        <%= f.text_field :industry, :class=>"form-control", placeholder: "Industry Type", required: true %>
       </div>
 
       <div class="col-md-2">
-        <%= f.text_field :total_exp, :class=>"form-control", placeholder: "Total Exp" %>
+        <%= f.number_field :total_exp, :class=>"form-control", placeholder: "Total Exp", min: 0.1, step: 0.1 %>
       </div>
 
       <div class="col-md-2">
