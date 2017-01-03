@@ -23,8 +23,7 @@
         <td><%= skill.industry %></td>
         <td><%= skill.total_exp %></td>
         <td><%= skill.is_certify %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill), remote: true %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+        <td><%= link_to edit_skill_path(skill),class: "btn btn-info btn-sm", remote: true do %><span class="glyphicon glyphicon-pencil"></span><%end%> <%= link_to skill, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %><span class="glyphicon glyphicon-remove"></span><%end%></td>
       </tr>
     <% end %>
   </tbody>
