@@ -1,10 +1,4 @@
 <h1>Skills</h1>
-<%= link_to 'Add Skill', "#", class: "btn btn-primary", id: "add_skill" %>
-
-<div id="skill_form">
-  <%= render 'form', skill: @skill %>  
-</div>
-
 
 <table class="table table-strip">
   <thead>
@@ -23,17 +17,20 @@
       <tr id="row-<%=skill.id%>">
         <td><%= skill.name %></td>
         <td>
-          <div id="rateYo<%= skill.id%>"></div>
-          <script type="text/javascript">
-            $("#rateYo<%= skill.id%>").rateYo({rating: <%= skill.rate%>,halfStar: true, readOnly: true, starWidth: "30px"});
-          </script>
+          <div id="rateYo-<%= skill.id%>"></div>
+          <script type="text/javascript">setRating(<%= skill.id %>, <%= skill.rate%>, true);</script>
         </td>
         <td><%= skill.industry %></td>
         <td><%= skill.total_exp %></td>
         <td><%= skill.is_certify %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill), remote: true %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div id="skill_form">
+  <%= render 'form', skill: @skill %>  
+  <script type="text/javascript">setRating(<%= @skill.id||0%>, <%= @skill.rate%>, false);</script>
+</div>
