@@ -3,7 +3,7 @@ $(function () {
 	var show_skill = $("#row-"+skill_id).html();
   $("#row-"+skill_id).html("<td colspan='7'><%=j render 'form', skill: @skill %></td>");
   setRating(<%= @skill.id%>, <%= @skill.rate%>, false);
-  $("#cancel_add_skill_edit").click(function(e){
+  $("#cancel_skill_edit").click(function(e){
   	$("#row-"+skill_id).html(show_skill);
 		e.stopPropagation();
 	});

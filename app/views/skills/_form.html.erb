@@ -35,6 +35,7 @@
 
       <div class="col-md-2">
         <%= f.submit("Save Skill", class: "btn btn-primary") %>
+        <%= link_to "Cancel", "#", id: "cancel_skill_edit", class: "btn btn-primary" unless f.object.new_record?%>
       </div>
     <% end %>
 </div>
