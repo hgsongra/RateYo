@@ -14,10 +14,4 @@ $(function(){
 		$("#skill_form").hide();
 		e.stopPropagation();
 	});
-
-	$("#cancel_add_skill_edit").click(function(e){
-		alert("Hello Folks!!");
-		e.stopPropagation();
-	});
-
 });
