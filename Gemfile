@@ -35,6 +35,11 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'codeclimate-test-reporter','0.6.0'
+  gem 'rspec-collection_matchers'
+  gem 'simplecov'
 end
 
 group :development do
