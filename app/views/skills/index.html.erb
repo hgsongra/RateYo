@@ -1,7 +1,4 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Skills</h1>
-<%= link_to 'New Skill', new_skill_path, class: "btn btn-primary" %>
 
 <table class="table table-strip">
   <thead>
@@ -11,29 +8,28 @@
       <th>Industry</th>
       <th>Total exp</th>
       <th>Is certify</th>
-      <th colspan="3">Action</th>
+      <th colspan="2">Action</th>
     </tr>
   </thead>
 
   <tbody>
     <% @skills.each do |skill| %>
-      <tr>
+      <tr id="row-<%=skill.id%>">
         <td><%= skill.name %></td>
         <td>
-          <div id="rateYo<%= skill.id%>"></div>
-          <script type="text/javascript">
-            $("#rateYo<%= skill.id%>").rateYo({rating: <%= skill.rate%>,halfStar: true, readOnly: true, starWidth: "30px"});
-          </script>
+          <div id="rateYo-<%= skill.id%>"></div>
+          <script type="text/javascript">setRating(<%= skill.id %>, <%= skill.rate%>, true);</script>
         </td>
         <td><%= skill.industry %></td>
         <td><%= skill.total_exp %></td>
         <td><%= skill.is_certify %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to edit_skill_path(skill),class: "btn btn-info btn-sm", remote: true do %><span class="glyphicon glyphicon-pencil"></span><%end%> <%= link_to skill, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %><span class="glyphicon glyphicon-remove"></span><%end%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div id="skill_form">
+  <%= render 'form', skill: @skill %>  
+  <script type="text/javascript">setRating(<%= @skill.id||0%>, <%= @skill.rate%>, false);</script>
+</div>
